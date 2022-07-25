@@ -3,7 +3,7 @@ export default function Header() {
         <div className="text-center">
             <img 
             src="https://i.imgur.com/3KXm2jS.jpeg"
-            width="100"
+            width="300"
             className="rounded-circle"
             alt="logo"
             style={{marginTop: "20px"}}

@@ -1,37 +1,51 @@
-import { Col, Container, Row } from 'reactstrap';
-import WatchList from './WatchList';
-import NewWatchModal from './NewWatchModal';
+import React, { Component } from "react";
+import { Col, Container, Row } from "reactstrap";
+import WatchList from "./WatchList";
+import NewWatchModal from "./NewWatchModal";
+
 import axios from "axios"
-import { API_URL } from '../constants/index';
-import { useState } from 'react';
 
-export default function Home(props){
-    const [watches, setWatches] = useState([]);
+import { API_URL } from "../constants"
 
-    function componentDidMount() {
-        resetWatch();
+class Home extends Component {
+    state = {
+        watches: []
     }
 
-    function resetWatch() {
-        getWatches({});
+    componentDidMount() {
+        this.resetState()
     }
 
-    function getWatches() {
-        axios.get(API_URL).then(res => setWatches({watches: res.data}));
+    getWatches = () => {
+        axios.get(API_URL).then(res => this.setState({ watches: res.data }))
     }
 
-    return(
-        <Container style={{ marginTop: "20px" }}>
-            <Row>
-                <Col>
-                    <WatchList watches={watches} resetWatch={resetWatch}/>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <NewWatchModal create={true} resetWatch={resetWatch}/>
-                </Col>
-            </Row>
-        </Container>
-    )
+    resetState = () => {
+        this.getWatches()
+    }
+
+    render() {
+        return (
+            <Container style={{  marginTop: "20px" }}>
+                <Row>
+                    <Col>
+                        <WatchList 
+                        watches={this.state.watches} 
+                        resetState={this.resetState}
+                        />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <NewWatchModal 
+                        resetState={this.resetState} 
+                        create={true}
+                        />
+                    </Col>
+                </Row>
+            </Container>
+        )
+    }
 }
+
+export default Home

@@ -1,33 +1,40 @@
-import {  Fragment, useState } from 'react';
-import { Modal, Button, ModalHeader, ModalFooter } from 'reactstrap';
-import axios from 'axios';
-import { API_URL } from '../constants/index';
+import React, { Component, Fragment } from "react";
+import { Button, ModalHeader, Modal, ModalFooter } from "reactstrap";
+import axios from "axios"
+import { API_URL } from "../constants"
 
-export default function ConfirmDeleteModal(props){
-    const [modal, setModal] = useState(false);
-
-    function toggle() {
-        setModal(!modal);
+class ConfirmRemovalModal extends Component {
+    state = {
+        modal: false
     }
 
-    function deleteWatch() {
-        axios.delete(`${API_URL}${props.watch.pk}/`)
-            .then(() => {
-                props.resetWatch();
-                props.toggle();
-            })
+    toggle = () => {
+        this.setState(previous => ({
+            modal: !previous.modal
+        }))
     }
 
-    return (
-        <Fragment>
-            <Button color="danger" className="float-right" onClick={toggle()}>Delete</Button>
-            <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Confirm Delete?</ModalHeader>
-                <ModalFooter>
-                    <Button type="button" color="danger" onClick={() => deleteWatch(props.pk)}>Delete</Button>
-                    <Button type="button" color="secondary" onClick={() => toggle()}>Cancel</Button>
-                </ModalFooter>
-            </Modal>
-        </Fragment>
-    );
+    deleteWatch = pk => {
+        axios.delete(API_URL + pk).then(() => {
+            this.props.resetState()
+            this.toggle()
+        })
+    }
+
+    render() {
+        return (
+            <Fragment>
+                <Button color="danger" onClick={() => this.toggle()}>Remove</Button>
+                <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                    <ModalHeader toggle={this.toggle}>Confirm Removal</ModalHeader>
+                    <ModalFooter>
+                        <Button color="primary" onClick={() => this.deleteWatch(this.props.pk)}>Confirm</Button>
+                        <Button color="secondary" onClick={() => this.toggle()}>Cancel</Button>
+                    </ModalFooter>
+                </Modal>
+            </Fragment>
+        )
+    }
 }
+
+export default ConfirmRemovalModal
