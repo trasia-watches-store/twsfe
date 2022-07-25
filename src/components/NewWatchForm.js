@@ -31,7 +31,7 @@ export default NewWatchForm = (props) => {
 
     function updateWatch(event) {
         event.preventDefault();
-        axios.put(`${API_URL}${watch.id}/`, watch)
+        axios.put(`${API_URL}${watch.pk}/`, watch)
             .then(() => {
                 props.resetWatch();
                 props.toggle();
