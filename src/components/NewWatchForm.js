@@ -1,8 +1,9 @@
 import { Button, Form, Input, Label, FormGroup } from 'reactstrap';
 import axios from 'axios';
 import { API_URL } from '../constants/index';
+import { useState } from 'react';
 
-export default NewWatchForm = (props) => {
+export default function NewWatchForm(props){
     const [watch, setWatch] = useState({
         name: '',
         type: '',

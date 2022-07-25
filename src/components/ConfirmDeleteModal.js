@@ -1,9 +1,9 @@
-import {  Fragment } from 'react';
+import {  Fragment, useState } from 'react';
 import { Modal, Button, ModalHeader, ModalFooter } from 'reactstrap';
-import axios from axios
+import axios from 'axios';
 import { API_URL } from '../constants/index';
 
-export default ConfirmDeleteModal = (props) => {
+export default function ConfirmDeleteModal(props){
     const [modal, setModal] = useState(false);
 
     function toggle() {

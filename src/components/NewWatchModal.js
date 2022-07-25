@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Modal, Button, ModalHeader, ModalBody } from 'reactstrap';
 import NewWatchForm from './NewWatchForm';
 
-export default NewWatchModal = (props) => {
+const NewWatchModal = (props) => {
     const [modal, setModal] = useState(false);
 
     function toggle() {
@@ -34,3 +34,5 @@ export default NewWatchModal = (props) => {
         </Fragment>
     );
 }
+
+export default NewWatchModal

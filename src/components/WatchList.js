@@ -2,7 +2,7 @@ import { Table } from 'reactstrap'
 import NewWatchForm from './NewWatchForm';
 import ConfirmDeleteModal from './ConfirmDeleteModal';
 
-export default WatchList = (props) => {
+const WatchList = (props) => {
     const watches = props.watches;
     return(
         <Table dark>
@@ -46,3 +46,5 @@ export default WatchList = (props) => {
         </Table>
     )
 }
+
+export default WatchList

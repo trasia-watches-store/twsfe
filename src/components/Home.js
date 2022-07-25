@@ -1,10 +1,11 @@
 import { Col, Container, Row } from 'reactstrap';
 import WatchList from './WatchList';
 import NewWatchModal from './NewWatchModal';
-import axios from axios
+import axios from "axios"
 import { API_URL } from '../constants/index';
+import { useState } from 'react';
 
-export default Home = (props) => {
+export default function Home(props){
     const [watches, setWatches] = useState([]);
 
     function componentDidMount() {
