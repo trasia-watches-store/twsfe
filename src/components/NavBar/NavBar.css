@@ -1,0 +1,76 @@
+.icon{
+    width: 2.5em;
+    height: 2.5em;
+    margin: .25em;
+    text-decoration: none;
+  }
+  
+  .icon:hover{
+    width: 2.75em;
+    height: 2.75em;
+  }
+  
+  .navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c49474;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsuRAmfBBIvmC-awEhPo_CviUb7QuM4tMMGw&usqp=CAU');
+    background-repeat: repeat;
+    -webkit-background-clip:content-box;
+    background-clip: content-box;
+    animation: animate 30s ease-in-out infinite;
+    /* padding-left: 2.5em; */
+    /* width: 100%; */
+  }
+  
+  .icons{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+  }
+  
+  * {
+    font-family: 'Itim', cursive;
+    box-sizing: border-box;
+  }
+  
+  .instacat{
+    margin-left: 2em ;
+  }
+  
+  @keyframes animate {
+    0%,
+    100%{
+      background-position: left top;
+    }
+    25%{
+      background-position: right bottom;
+    }
+    50%{
+      background-position: left bottom;
+    }
+    75%{
+      background-position: right top;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (max-width: 600px) {
+    .navbar-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #c49474;
+      width: 100%;
+    }
+  } 
+  
+  .profilePicture {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+  }
