@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import WatchList from "../../components/WatchList";
-import NewWatchModal from "../../components/NewWatchModal";
+import NewWatchModal from "../../components/NewWatchModal/NewWatchModal";
 
 import axios from "axios"
 

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
-import NewWatchForm from "./NewWatchForm/NewWatchForm";
+import NewWatchForm from "../NewWatchForm/NewWatchForm";
 
 class NewWatchModal extends Component {
   state = {
