@@ -26,7 +26,7 @@ class NewWatchModal extends Component {
           color="primary"
           className="float-right"
           onClick={this.toggle}
-          style={{ minWidth: "200px" }}
+          style={{ minWidth: "200px", marginBottom: "10px" }}
         >
           Create New
         </Button>
