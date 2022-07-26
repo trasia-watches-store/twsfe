@@ -1,11 +1,11 @@
 import React, { Component, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
-import WatchList from "./WatchList";
-import NewWatchModal from "./NewWatchModal";
+import WatchList from "../../components/WatchList";
+import NewWatchModal from "../../components/NewWatchModal";
 
 import axios from "axios"
 
-import { API_URL } from "../constants"
+import { API_URL } from "../../constants"
 
 class Home extends Component {
     state = {

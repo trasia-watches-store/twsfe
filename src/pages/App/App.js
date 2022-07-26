@@ -1,6 +1,6 @@
 import './App.css';
 import Header from '../../components/Header';
-import Home from '../../components/Home';
+import Home from '../HomePage/Home';
 // import NavBar from './components/NavBar/NavBar.js';
 import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react';
