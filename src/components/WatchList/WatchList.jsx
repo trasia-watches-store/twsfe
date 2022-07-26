@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
-import NewWatchModal from "./NewWatchModal/NewWatchModal";
+import NewWatchModal from "../NewWatchModal/NewWatchModal";
 
-import ConfirmDeleteModal from "./ConfirmDeleteModal/ConfirmDeleteModal";
+import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 
 class WatchList extends Component {
   render() {
