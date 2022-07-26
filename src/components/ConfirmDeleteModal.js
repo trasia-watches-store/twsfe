@@ -3,7 +3,7 @@ import { Button, ModalHeader, Modal, ModalFooter } from "reactstrap";
 import axios from "axios"
 import { API_URL } from "../constants"
 
-class ConfirmRemovalModal extends Component {
+class ConfirmDeleteModal extends Component {
     state = {
         modal: false
     }
@@ -37,4 +37,4 @@ class ConfirmRemovalModal extends Component {
     }
 }
 
-export default ConfirmRemovalModal
+export default ConfirmDeleteModal
