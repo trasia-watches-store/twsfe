@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './SignUpForm.css';
+import axios from "axios";
+import { API_URL } from "../../constants";
+
 export default class SignUpForm extends Component {
   // class field syntax
   
@@ -11,10 +14,14 @@ export default class SignUpForm extends Component {
     error: ''
   };
 
+  // axios.post(API_URL, this.state).then(() => {
+  //   this.props.resetState();
+  //   this.props.toggle();
+  // });
+
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-  
       const formData = {...this.state};
       delete formData.error;
       delete formData.confirm;
