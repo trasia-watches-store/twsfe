@@ -1,0 +1,34 @@
+.AuthPage {
+    height: 100%;
+    display: block;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/619/552/non_2x/print-banner-brochure-with-a-cute-cats-best-friends-text-isolated-background-postcard-illustration-eps-10-vector.jpg");
+    background-size: contain;
+    background-color: white;
+    border-radius: 2vmin;
+    padding: 10px;
+  }
+  
+  .AuthPage .signUpButton {
+    text-align: center;
+    color: #373619;
+    cursor: pointer;
+    width: 25%;
+    margin: auto;
+    font-weight: bold;
+    grid-template-columns: 4fr;
+    padding: 3vmin;
+    background-color: white;
+    border: .1vmin solid #373619;
+    border-radius: 1vmin;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #c49474;
+
+  }
+  
