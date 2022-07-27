@@ -6,7 +6,8 @@ export default function StaffProfile({ user, setUser }) {
     // const [username, setUsername] = useState(user.name);
     console.log(user)
     const [username, setUsername] = useState('');
-    const [changed, setChanged] = useState(false);
+    const [Pchanged, setPchanged] = useState(false);
+    const [Uchanged, setUchanged] = useState(false);
 
     const [passwords, setPasswords] = useState({
         oldPassword: "",
@@ -21,16 +22,17 @@ export default function StaffProfile({ user, setUser }) {
 
     async function handleSubmitUserName(evt) {
         evt.preventDefault();
-        try {
-            // user.name = username; // update the username.
-            // const newUser = await usersService.changeUsername(user);
-            // setUser(newUser);
-            alert("Username changed!");
-        } catch (error) {
-            //   setError('Change username failed - Try Again');
-            console.log("error: ", error);
-            alert('Change username failed - Try Again');
-        }
+        const key = localStorage.getItem('token');
+        // console.log("username: " + username);
+        axios.put(`${USER_URL}user/`, {username: username}, {
+            headers: {
+                'Authorization': `Token ${key}`
+            }
+        }).then((response) => {
+            // console.log(response.data);
+            setUser(response.data);
+            setUchanged(true);
+        })
     }
 
     function handleChangePassword(evt) {
@@ -46,7 +48,7 @@ export default function StaffProfile({ user, setUser }) {
             // console.log("user", user);
             // const newUser = await usersService.changePassword(user);
             // setUser(newUser);
-            setChanged(true)
+            setPchanged(true)
             alert('Change password success');
         } catch {
             //   setError('Change username failed - Try Again');
@@ -60,7 +62,8 @@ export default function StaffProfile({ user, setUser }) {
 
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
                 <label>New Username</label>
-                <input type="text" placeholder="New username" name="username" value={username} onChange={handleChangeUserName} required />
+                <input type="text" placeholder={user.username} name="username" value={username} onChange={handleChangeUserName} required />
+                {Uchanged && <p>Username changed to {username}</p>}
                 <button type="submit" >Submit</button>
             </form>
             <form autoComplete="off" className="form-password" onSubmit={handleSubmitPassword}>
@@ -69,7 +72,7 @@ export default function StaffProfile({ user, setUser }) {
                 <label>New password</label>
                 <input type="text" placeholder="New password" name="newPassword"
                     onChange={handleChangePassword} required />
-                    {changed && <p>Password changed</p>}
+                    {Pchanged && <p>Password changed</p>}
                 <button type="submit" >Submit</button>
             </form>
             {/* add dummy space to overcome the sticky footer */}
