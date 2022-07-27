@@ -26,7 +26,7 @@ export default function LoginForm({ setUser }) {
       //   setUser(data);
       // }
       // console.log(response.config.data, response, response.config)
-      {console.log(response)
+      {console.log(response, response.data)
       setUser(response.config.data)}
       )
   }
