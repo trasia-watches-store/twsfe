@@ -45,7 +45,7 @@ export default class SignUpForm extends Component {
   };
 
   render() {
-    const disable = this.state.password !== this.state.confirm;
+    const disable = this.state.password1 !== this.state.password2;
     return (
       <div>
         <div className="form-container">

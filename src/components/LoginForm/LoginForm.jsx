@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './LoginForm.css';
+import axios from "axios";
+import { USER_URL } from "../../constants";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -16,13 +18,18 @@ export default function LoginForm({ setUser }) {
   async function handleSubmit(evt) {
     
     evt.preventDefault();
-    try {
-    //   const user = await usersService.login(credentials);
-    //   setUser(user);
-    alert('Login success');
-    } catch {
-      setError('Log In Failed - Try Again');
-    }
+    // try {
+    // //   const user = await usersService.login(credentials);
+    // //   setUser(user);
+    axios.post(`${USER_URL}login/`, credentials).then(() => {
+      setUser();
+      console.log(credentials.email + " logged in successfully");
+      
+      // this.props.toggle();
+    });
+    // } catch {
+    //   setError('Log In Failed - Try Again');
+    // }
   }
 
   return (
