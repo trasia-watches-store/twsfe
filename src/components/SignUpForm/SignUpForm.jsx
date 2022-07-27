@@ -3,7 +3,7 @@ import './SignUpForm.css';
 import axios from "axios";
 import { USER_URL } from "../../constants";
 
-export default function SignUpForm({ setUser, getUser }) {
+export default function SignUpForm({ setUser, getUser  }) {
   const [dataForm, setDataForm] = useState({
     email: '',
     username: '',
@@ -19,7 +19,9 @@ export default function SignUpForm({ setUser, getUser }) {
     evt.preventDefault();
     axios.post(`${USER_URL}registration/`, dataForm)
     .then((response) =>  getUser(response.data.key))
+    // .then((response) =>  console.log(response.data.key))
   }
+
 
   return (
     <div>
