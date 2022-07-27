@@ -25,7 +25,7 @@ function App() {
             ></Route>
             <Route
               path="/staffprofile"
-              element={<StaffProfile user={user} />}
+              element={<StaffProfile user={user} setUser={setUser} />}
             ></Route>
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
             {/* <Route path="/*" element={<Navigate to="/HomeStaff" />} /> */}
