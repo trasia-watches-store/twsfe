@@ -16,19 +16,18 @@ export default function LoginForm({ setUser }) {
   }
 
   async function handleSubmit(evt) {
-    
     evt.preventDefault();
-    axios.post(`${USER_URL}login/`, credentials).then((response) => 
-      // setUser()
-    // alert(`Welcome`)
-      // response.json()).then((data) => {
-      //   alert(data.message);
-      //   setUser(data);
-      // }
-      // console.log(response.config.data, response, response.config)
-      {console.log(response, response.data)
-      setUser(response.config.data)}
-      )
+    axios.post(`${USER_URL}login/`, credentials)
+    .then((response) =>  getUser(response.data.key))
+  }
+
+  async function getUser(key) {
+    localStorage.clear()
+    localStorage.setItem('token', key)
+    axios.get(`${USER_URL}user/`, 
+      {headers: {
+        'Authorization': `Token ${key}`
+      }}).then((response) => setUser(response.data))
   }
 
   return (

@@ -11,32 +11,23 @@ export default class SignUpForm extends Component {
     email: "",
     password1: "",
     password2: "",
-    error: "",
   };
-
-  // axios.post(API_URL, this.state).then(() => {
-  //   this.props.resetState();
-  //   this.props.toggle();
-  // });
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
-    // try {
-    //   const formData = { ...this.state };
-    //   delete formData.error;
-    //   delete formData.confirm;
-      axios.post(`${USER_URL}registration/`, this.state).then((response) => {
-        // console.log(response)
-        this.props.setUser(response.config.data);
-        // this.props.toggle();
-      });
-      // const user = await signUp(formData);
-      // console.log(user)
-      // this.props.setUser(user);
-    // } catch {
-    //   this.setState({ error: "Sign Up Failed - Try Again" });
-    // }
+      axios.post(`${USER_URL}registration/`, this.state)
+      // .then((response) =>  this.getUser(this.response.data.key))
+      .then((response) =>  this.getUser(response.data.key))
   };
+
+  async getUser(key) {
+    localStorage.clear()
+    localStorage.setItem('token', key)
+    axios.get(`${USER_URL}user/`, 
+      {headers: {
+        'Authorization': `Token ${key}`
+      }}).then((response) => this.props.setUser(response.data))
+  }
 
   handleChange = (evt) => {
     this.setState({

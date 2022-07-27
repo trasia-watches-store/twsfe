@@ -2,13 +2,23 @@ import { Link } from "react-router-dom"
 import { AiOutlineHome } from 'react-icons/ai'
 import { GiWatch } from 'react-icons/gi'
 import { BsPersonCircle } from 'react-icons/bs'
+import cookie from 'react-cookies'
+import axios from "axios"
+import { USER_URL } from "../../constants";
 
 const NavBar = ({ user, setUser }) => {
-	function handleLogOut() {
-		// Delegate to the users-service
-		// userService.logOut()
-		// Update state will also cause a re-render
-		setUser(null)
+	async function handleLogOut(evt) {
+    evt.preventDefault();
+    axios.post(`${USER_URL}logout/`, {
+      headers: {
+        'Authorization': `Token ${localStorage.getItem('token')}`
+      }
+    }).then((response) => {
+      console.log(response)
+      localStorage.clear()
+		setUser(null)}
+    )
+		
 	}
 
   return (

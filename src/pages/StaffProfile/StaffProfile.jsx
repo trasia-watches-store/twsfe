@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import axios from "axios";
+import { USER_URL } from "../../constants";
 
 export default function StaffProfile({ user, setUser }) {
     // const [username, setUsername] = useState(user.name);
+    console.log(user)
     const [username, setUsername] = useState('');
     const [changed, setChanged] = useState(false);
 
