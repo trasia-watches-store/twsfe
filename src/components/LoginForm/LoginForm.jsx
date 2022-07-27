@@ -3,7 +3,7 @@ import './LoginForm.css';
 import axios from "axios";
 import { USER_URL } from "../../constants";
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser, getUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -19,16 +19,17 @@ export default function LoginForm({ setUser }) {
     evt.preventDefault();
     axios.post(`${USER_URL}login/`, credentials)
     .then((response) =>  getUser(response.data.key))
+    // .then((response) =>  console.log(response.data.key))
   }
 
-  async function getUser(key) {
-    localStorage.clear()
-    localStorage.setItem('token', key)
-    axios.get(`${USER_URL}user/`, 
-      {headers: {
-        'Authorization': `Token ${key}`
-      }}).then((response) => setUser(response.data))
-  }
+  // async function getUser(key) {
+  //   localStorage.clear()
+  //   localStorage.setItem('token', key)
+  //   axios.get(`${USER_URL}user/`, 
+  //     {headers: {
+  //       'Authorization': `Token ${key}`
+  //     }}).then((response) => setUser(response.data))
+  // }
 
   return (
     <div>

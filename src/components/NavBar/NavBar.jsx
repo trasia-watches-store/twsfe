@@ -14,7 +14,7 @@ const NavBar = ({ user, setUser }) => {
         'Authorization': `Token ${localStorage.getItem('token')}`
       }
     }).then((response) => {
-      console.log(response)
+      // console.log(response)
       localStorage.clear()
 		setUser(null)}
     )
