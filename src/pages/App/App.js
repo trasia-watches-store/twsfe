@@ -1,7 +1,6 @@
 import './App.css';
 import Header from '../../components/Header/Header';
 import HomeStaff from '../HomePage/HomeStaff';
-import StaffProfile from '../StaffProfile/StaffProfile';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import { Fragment, useState } from 'react';
