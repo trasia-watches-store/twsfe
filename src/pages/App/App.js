@@ -13,6 +13,8 @@ function App() {
   // const toggle = () => setIsOpen(!isOpen)
   const [user, setUser] = useState(null);
   // const [user, setUser] = useState(getUser());
+  const [watch, setWatch] = useState('');
+
   return (
     <Fragment>
       <NavBar user={user} setUser={setUser} />
