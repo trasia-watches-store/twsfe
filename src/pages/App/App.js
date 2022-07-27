@@ -10,11 +10,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 // import { Navbar, Collapse, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarToggler } from 'reactstrap';
 
 function App() {
-  // const [isOpen, setIsOpen] = useState(false)
-  // const toggle = () => setIsOpen(!isOpen)
   const [user, setUser] = useState(null);
-  // const [user, setUser] = useState('null');
-  // const [user, setUser] = useState(getUser());
   const [watch, setWatch] = useState('');
 
   return (

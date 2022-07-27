@@ -25,8 +25,9 @@ export default class SignUpForm extends Component {
     //   const formData = { ...this.state };
     //   delete formData.error;
     //   delete formData.confirm;
-      axios.post(`${USER_URL}registration/`, this.state).then(() => {
-        this.props.setUser();
+      axios.post(`${USER_URL}registration/`, this.state).then((response) => {
+        // console.log(response)
+        this.props.setUser(response.config.data);
         // this.props.toggle();
       });
       // const user = await signUp(formData);

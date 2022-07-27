@@ -18,18 +18,17 @@ export default function LoginForm({ setUser }) {
   async function handleSubmit(evt) {
     
     evt.preventDefault();
-    // try {
-    // //   const user = await usersService.login(credentials);
-    // //   setUser(user);
-    axios.post(`${USER_URL}login/`, credentials).then(() => {
-      setUser();
-      console.log(credentials.email + " logged in successfully");
-      
-      // this.props.toggle();
-    });
-    // } catch {
-    //   setError('Log In Failed - Try Again');
-    // }
+    axios.post(`${USER_URL}login/`, credentials).then((response) => 
+      // setUser()
+    // alert(`Welcome`)
+      // response.json()).then((data) => {
+      //   alert(data.message);
+      //   setUser(data);
+      // }
+      // console.log(response.config.data, response, response.config)
+      {console.log(response)
+      setUser(response.config.data)}
+      )
   }
 
   return (
