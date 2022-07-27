@@ -17,7 +17,7 @@ export default function LoginForm({ setUser, getUser }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(credentials)
+    // console.log(credentials)
     axios.post(`${USER_URL}login/`, credentials)
     .then((response) =>  getUser(response.data.key))
     // .then((response) =>  console.log(response.data.key))

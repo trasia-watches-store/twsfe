@@ -3,15 +3,14 @@ import axios from "axios";
 import { USER_URL } from "../../constants";
 
 export default function StaffProfile({ user, setUser }) {
-    // const [username, setUsername] = useState(user.name);
-    console.log(user)
+    const key = localStorage.getItem('token');
     const [username, setUsername] = useState('');
     const [Pchanged, setPchanged] = useState(false);
     const [Uchanged, setUchanged] = useState(false);
-
     const [passwords, setPasswords] = useState({
-        oldPassword: "",
-        newPassword: ""
+        old_password: "",
+        new_password1: "",
+        new_password2: ""
     });
 
     
@@ -22,9 +21,8 @@ export default function StaffProfile({ user, setUser }) {
 
     async function handleSubmitUserName(evt) {
         evt.preventDefault();
-        const key = localStorage.getItem('token');
         // console.log("username: " + username);
-        axios.put(`${USER_URL}user/`, {username: username}, {
+        axios.put(`${USER_URL}user/`, {"username": username}, {
             headers: {
                 'Authorization': `Token ${key}`
             }
@@ -32,8 +30,12 @@ export default function StaffProfile({ user, setUser }) {
             // console.log(response.data);
             setUser(response.data);
             setUchanged(true);
+        }).catch((error) => { // removed these lines for more errors handling options
+            // console.log(error);
+            setUchanged(false);
         })
     }
+
 
     function handleChangePassword(evt) {
         // console.log("new password: " + evt.target.value);
@@ -41,19 +43,15 @@ export default function StaffProfile({ user, setUser }) {
     }
     async function handleSubmitPassword(evt) {
         evt.preventDefault();
-        try {
-            // console.log("passwords: ", passwords);
-            user.oldPassword = passwords.oldPassword;
-            user.newPassword = passwords.newPassword;
-            // console.log("user", user);
-            // const newUser = await usersService.changePassword(user);
-            // setUser(newUser);
-            setPchanged(true)
-            alert('Change password success');
-        } catch {
-            //   setError('Change username failed - Try Again');
-            alert('Change password failed - Try Again');
-        }
+        axios.post(`${USER_URL}password/change/`, passwords, {
+            headers: {
+                'Authorization': `Token ${key}`
+            }
+        }).then((response) => {
+            // setUser(response.data);
+            console.log(response);
+            setPchanged(true);
+        })
     }
 
     return (
@@ -63,14 +61,16 @@ export default function StaffProfile({ user, setUser }) {
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
                 <label>New Username</label>
                 <input type="text" placeholder={user.username} name="username" value={username} onChange={handleChangeUserName} required />
-                {Uchanged && <p>Username changed to {username}</p>}
+                {Uchanged ? <p>Username changed to {username}</p> : <p>150 characters or fewer. Letters, digits and @/./+/-/_ only.'</p>} 
                 <button type="submit" >Submit</button>
             </form>
             <form autoComplete="off" className="form-password" onSubmit={handleSubmitPassword}>
                 <label>Password</label>
-                <input type="text" placeholder="Old password" name="oldPassword" required onChange={handleChangePassword} />
+                <input type="text" placeholder="Old password" name="old_password" required onChange={handleChangePassword} />
                 <label>New password</label>
-                <input type="text" placeholder="New password" name="newPassword"
+                <input type="text" placeholder="New password" name="new_password1"
+                    onChange={handleChangePassword} required />
+                <input type="text" placeholder="Confirm new password" name="new_password2"
                     onChange={handleChangePassword} required />
                     {Pchanged && <p>Password changed</p>}
                 <button type="submit" >Submit</button>
