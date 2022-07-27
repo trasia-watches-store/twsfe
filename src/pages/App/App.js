@@ -12,8 +12,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 function App() {
   // const [isOpen, setIsOpen] = useState(false)
   // const toggle = () => setIsOpen(!isOpen)
-  // const [user, setUser] = useState(null);
-  const [user, setUser] = useState('null');
+  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState('null');
   // const [user, setUser] = useState(getUser());
   const [watch, setWatch] = useState('');
 
