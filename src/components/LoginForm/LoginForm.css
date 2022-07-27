@@ -1,0 +1,120 @@
+.form-container {
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 4fr;
+    padding: 3vmin;
+    background-color: white;
+    border: .1vmin solid #373619;
+    border-radius: 1vmin;
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    height: 100%;
+}
+
+p.error-message {
+    color: red;
+    text-align: center;
+}
+
+
+
+ form {
+    display: flex;
+    flex-direction: column;
+    
+    grid-template-rows: 8fr;
+    grid-template-columns: 4fr;
+    gap: 1.25vmin;
+    color: #373619;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+     -moz-box-direction: normal;
+    -webkit-box-direction: normal;
+}
+
+
+
+
+
+.input {
+    margin: auto 40px 6px;
+}
+
+label {
+    font-size: 2vmin;
+    display: flex;
+    align-items: center;
+
+}
+
+input {
+    padding: 9px 0 7px 8px;
+    height: 36px;
+    padding: 1vmin;
+    font-size: 2vmin;
+    border: .1vmin solid #373619;
+    border-radius: .5vmin;
+    color: black;
+    background-image: none !important;
+    outline: none;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    background-color: rgb(249, 246, 246);
+
+}
+
+input:focus {
+    border-color: #373619;
+}
+
+button,
+a.button {
+    margin: 1vmin;
+    padding: 1vmin;
+    color: #c49474;
+    background-color: #c4b1ac;
+    font-size: 2vmin;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: .1vmin solid #373619;
+    border-radius: .5vmin;
+    outline: none;
+    cursor: pointer;
+}
+
+button.btn-sm {
+    font-size: 1.5vmin;
+    padding: .6vmin .8vmin;
+}
+
+button.btn-xs {
+    font-size: 1vmin;
+    padding: .4vmin .5vmin;
+}
+
+button:disabled,
+form:invalid button[type="submit"] {
+    cursor: not-allowed;
+    background-color: #c49474;
+}
+
+button[type="submit"] {
+    grid-column: span 2;
+    margin: 1vmin 0 0;
+    color: #373619;
+    width: 5fr;
+}
+
+h1 {
+    font-size: 2rem;
+}
