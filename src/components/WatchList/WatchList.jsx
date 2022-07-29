@@ -14,7 +14,6 @@ class WatchList extends Component {
             <th>Name</th>
             <th>Type</th>
             <th>Image</th>
-            <th>Image test</th>
             <th>Edit/Remove</th>
           </tr>
         </thead>
@@ -30,16 +29,18 @@ class WatchList extends Component {
               <tr key={watch.pk}>
                 <td>{watch.name}</td>
                 <td>{watch.type}</td>
-                <td><Card style={{
-                  width: "5rem",
+                <td>
+                  {/* <Card style={{
+                  width: "10rem",
                   height: "10rem",
                   border: "1px solid black"
-                }}><CardImg style={{
-                  width: "5rem",
+                }}> */}
+                  <CardImg style={{
+                  width: "7rem",
                   height: "7rem"
-                }} src={watch.wimage}/></Card></td>
-                {/* {console.log(watch.wimage)} */}
-                <td></td>
+                }} src={watch.wimage}/>
+                {/* </Card> */}
+                </td>
                 <td align="center">
                   <NewWatchModal
                     create={false}
