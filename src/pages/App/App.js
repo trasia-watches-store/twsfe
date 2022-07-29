@@ -13,17 +13,19 @@ import HomeWatches from '../HomePage/HomeWatches';
 // import { Navbar, Collapse, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarToggler } from 'reactstrap';
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [watch, setWatch] = useState('');
   const auth = localStorage.getItem('token');
+  // console.log(localStorage.getItem('token'))
+  // console.log(auth)
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+  // console.log(user)
+  const [watch, setWatch] = useState('');
   // console.log(auth);
 
   useEffect(() => {
-    if (auth) {
-      getUser(auth)
-    }
+    getUser(auth)
   }, [auth]);
-let csrftoken
+// let csrftoken
   async function getUser(key) {
     localStorage.clear()
     !key || key == undefined ? localStorage.clear() : 
@@ -65,7 +67,7 @@ let csrftoken
           ) : (
             <Routes>
               <Route path="/" element={<AuthPage setUser={setUser} getUser={getUser} user={user}/>} />
-              <Route path="/*" element={<Navigate to="/home" />} />
+              <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
             // <AuthPage setUser={setUser} />
           )}

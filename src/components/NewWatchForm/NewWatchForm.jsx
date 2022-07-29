@@ -31,7 +31,7 @@ class NewWatchForm extends React.Component {
 
   createWatch = e => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     axios.post(API_URL, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();

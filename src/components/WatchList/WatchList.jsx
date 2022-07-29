@@ -38,6 +38,7 @@ class WatchList extends Component {
                   width: "5rem",
                   height: "7rem"
                 }} src={watch.wimage}/></Card></td>
+                {console.log(watch.wimage)}
                 <td></td>
                 <td align="center">
                   <NewWatchModal
