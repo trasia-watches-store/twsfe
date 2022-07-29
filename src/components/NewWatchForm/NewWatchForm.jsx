@@ -75,20 +75,20 @@ class NewWatchForm extends React.Component {
             value={this.defaultIfEmpty(this.state.type)}
           />
         </FormGroup>
-        {/* <FormGroup>
-          <Label for="image">Image:</Label>
-          <Input
-            type="text"
-            name="wimage"
-            onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.wimage)}
-          />
-        </FormGroup> */}
         <FormGroup>
-          <Label for="wimage">Image:</Label>
+          <Label for="wimage">WImage:</Label>
           <Input
             type="file"
             name="wimage"
+            onChange={this.onImageChange}
+            // value={this.defaultIfEmpty(this.state.wimage)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="image">Image:</Label>
+          <Input
+            type="file"
+            name="image"
             onChange={this.onImageChange}
             // value={this.defaultIfEmpty(this.state.wimage)}
           />
