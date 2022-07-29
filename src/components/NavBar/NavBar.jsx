@@ -3,9 +3,11 @@ import { AiOutlineHome } from 'react-icons/ai'
 import { BsShop } from 'react-icons/bs'
 import { GiWatch } from 'react-icons/gi'
 import { BsPersonCircle } from 'react-icons/bs'
+import { GoSignOut } from 'react-icons/go'
 import cookie from 'react-cookies'
 import axios from "axios"
 import { USER_URL } from "../../constants";
+import './NavBar.css'
 
 const NavBar = ({ user, setUser }) => {
   let navigate = useNavigate()
@@ -32,16 +34,13 @@ const NavBar = ({ user, setUser }) => {
   return (
     <div className='navbar-container'>
       <div className='instacat'>
-        {/* <h1><AiOutlineHome/>Trasia Watch Store</h1> */}
+        <h1><AiOutlineHome/>Trasia Watch Store</h1>
       </div>
       <div className='icons'>
       <Link to='/home'><BsShop style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>
-      {/* <Link to='/'><AiOutlineHome style={{marginLeft: "10px"}} className="icon" size='50px'/></Link> */}
-      {/* <Link to={`/createPost`}><img src="/images/newposticon.png" className="icon" alt=""/></Link> */}
       <Link to={`/managedb`}><GiWatch style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>
-      {/* <Link to={`/profile`}><img src={user.avatar} className="icon db profilePicture" alt=""/>{user.name}</Link> */}
       <Link to={`/staffprofile`}><BsPersonCircle style={{marginLeft: "10px"}} size='50px' className="icon db profilePicture" alt=""/></Link>
-      <Link to="" className="icon" style={{marginRight: "10px"}} onClick={handleLogOut}>Log Out</Link>
+      <Link to="" className="icon" style={{marginRight: "10px"}} onClick={handleLogOut}><GoSignOut style={{marginLeft: "20px"}} className="icon" size='50px'/></Link>
       </div>
     </div>
   );
