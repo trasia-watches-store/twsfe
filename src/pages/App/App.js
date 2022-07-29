@@ -23,7 +23,7 @@ function App() {
       getUser(auth)
     }
   }, [auth]);
-
+let csrftoken
   async function getUser(key) {
     localStorage.clear()
     !key || key == undefined ? localStorage.clear() : 
@@ -31,7 +31,11 @@ function App() {
     axios.get(`${USER_URL}user/`, 
       {headers: {
         'Authorization': `Token ${key}`
-      }}).then((response) => setUser(response.data))
+      }}).then((response) => {
+        // csrftoken = response.cookies['csrftoken']
+        // console.log(response.cookies)
+        setUser(response.data)
+      })
   }
 
   return (

@@ -35,7 +35,7 @@ const NavBar = ({ user, setUser }) => {
         {/* <h1><AiOutlineHome/>Trasia Watch Store</h1> */}
       </div>
       <div className='icons'>
-      <Link to='/'><BsShop style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>
+      <Link to='/home'><BsShop style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>
       {/* <Link to='/'><AiOutlineHome style={{marginLeft: "10px"}} className="icon" size='50px'/></Link> */}
       {/* <Link to={`/createPost`}><img src="/images/newposticon.png" className="icon" alt=""/></Link> */}
       <Link to={`/managedb`}><GiWatch style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>

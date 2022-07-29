@@ -8,13 +8,13 @@ class NewWatchForm extends React.Component {
     pk: 0,
     name: "",
     type: "",
-    image: "",
+    wimage: "",
   };
 
   componentDidMount() {
     if (this.props.watch) {
-      const { pk, name, type, image } = this.props.watch;
-      this.setState({ pk, name, type, image });
+      const { pk, name, type, wimage } = this.props.watch;
+      this.setState({ pk, name, type, wimage });
     }
   }
 
@@ -24,6 +24,7 @@ class NewWatchForm extends React.Component {
 
   createWatch = e => {
     e.preventDefault();
+    console.log(this.state);
     axios.post(API_URL, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
