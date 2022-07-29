@@ -22,6 +22,13 @@ class NewWatchForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onImageChange = (evt) => {
+      evt.preventDefault()
+      console.log(evt.target.name)
+      console.log(evt.target.files[0])
+      this.setState({ ...this.state, [evt.target.name]: evt.target.files[0] });
+    }
+
   createWatch = e => {
     e.preventDefault();
     console.log(this.state);
@@ -64,13 +71,22 @@ class NewWatchForm extends React.Component {
             value={this.defaultIfEmpty(this.state.type)}
           />
         </FormGroup>
-        <FormGroup>
+        {/* <FormGroup>
           <Label for="image">Image:</Label>
           <Input
             type="text"
-            name="image"
+            name="wimage"
             onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.image)}
+            value={this.defaultIfEmpty(this.state.wimage)}
+          />
+        </FormGroup> */}
+        <FormGroup>
+          <Label for="wimage">Image:</Label>
+          <Input
+            type="file"
+            name="wimage"
+            onChange={this.onImageChange}
+            // value={this.defaultIfEmpty(this.state.wimage)}
           />
         </FormGroup>
         <Button>Send</Button>
