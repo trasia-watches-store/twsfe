@@ -34,13 +34,13 @@ const NavBar = ({ user, setUser }) => {
   return (
     <div className='navbar-container'>
       <div className='instacat'>
-        <h1><AiOutlineHome/>Trasia Watch Store</h1>
+        <h1>Trasia Watch Store</h1>
       </div>
       <div className='icons'>
-      <Link to='/home'><BsShop style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>
-      <Link to={`/managedb`}><GiWatch style={{marginLeft: "10px"}} className="icon" size='50px'/></Link>
-      <Link to={`/staffprofile`}><BsPersonCircle style={{marginLeft: "10px"}} size='50px' className="icon db profilePicture" alt=""/></Link>
-      <Link to="" className="icon" style={{marginRight: "10px"}} onClick={handleLogOut}><GoSignOut style={{marginLeft: "20px"}} className="icon" size='50px'/></Link>
+      <Link to='/home'><BsShop className="icon"/></Link>
+      <Link to={`/managedb`}><GiWatch className="icon"/></Link>
+      <Link to={`/staffprofile`}><BsPersonCircle className="icon" alt=""/></Link>
+      <Link to="" ><GoSignOut className="icon" onClick={handleLogOut}/></Link>
       </div>
     </div>
   );
