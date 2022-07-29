@@ -47,7 +47,7 @@ let csrftoken
       {/* <Home /> */}
       <Routes>
             <Route
-              path="/"
+              path="/home"
               element={<HomeWatches user={user} />}
             ></Route>
             <Route
@@ -59,13 +59,13 @@ let csrftoken
               element={<StaffProfile user={user} setUser={setUser} />}
             ></Route>
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-            <Route path="/*" element={<Navigate to="/" />} />
+            <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
           </>
           ) : (
             <Routes>
               <Route path="/" element={<AuthPage setUser={setUser} getUser={getUser} user={user}/>} />
-              <Route path="/*" element={<Navigate to="/" />} />
+              <Route path="/*" element={<Navigate to="/home" />} />
             </Routes>
             // <AuthPage setUser={setUser} />
           )}
