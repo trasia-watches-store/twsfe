@@ -34,6 +34,7 @@ const NavBar = ({ user, setUser }) => {
   return (
     <div className='navbar-container'>
       <div className='instacat'>
+      {/* <img src="../../../public/images/pexels-antony-trivet-9897010.jpg" alt=''/> */}
         <h1>Trasia Watch Store</h1>
       </div>
       <div className='icons'>

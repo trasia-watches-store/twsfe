@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     getUser(auth)
   }, [auth]);
-// let csrftoken
+
   async function getUser(key) {
     localStorage.clear()
     !key || key == undefined ? localStorage.clear() : 
@@ -45,7 +45,7 @@ function App() {
     {user ? (
       <>
       <NavBar user={user} setUser={setUser} />
-      {/* <Header /> */}
+      <Header />
       {/* <Home /> */}
       <Routes>
             <Route
