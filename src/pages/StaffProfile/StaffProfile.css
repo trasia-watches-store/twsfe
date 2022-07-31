@@ -116,3 +116,9 @@ button[type="submit"] {
     color: #373619;
     width: 5fr;
 }
+
+@media (max-width: 500px) {
+    .username-rule {
+        font-size: 10px;
+    }
+}

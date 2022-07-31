@@ -62,7 +62,7 @@ export default function StaffProfile({ user, setUser }) {
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
                 <label>New Username</label>
                 <input type="text" placeholder={user.username} name="username" value={username} onChange={handleChangeUserName} required />
-                {Uchanged ? <p>Username changed to {username}</p> : <p>150 characters or fewer. Letters, digits and @/./+/-/_ only.'</p>} 
+                {Uchanged ? <p>Username changed to {username}</p> : <p className='username-rule'>150 characters or fewer. Letters, digits and @/./+/-/_ only.'</p>} 
                 <button type="submit" >Submit</button>
             </form>
             <form autoComplete="off" className="form-password" onSubmit={handleSubmitPassword}>
