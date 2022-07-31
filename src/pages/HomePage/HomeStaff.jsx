@@ -26,7 +26,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Container style={{  marginTop: "0 auto" }}>
+            <Container style={{  marginTop: "0 auto", height:'100%' }}>
                 <Row>
                     <Col>
                     <NewWatchModal 
@@ -44,6 +44,8 @@ class Home extends Component {
                         
                     </Col>
                 </Row>
+                 {/* add dummy space to overcome the sticky footer */}
+            <div className="dummy" style={{height: '10%'}}/>
             </Container>
         )
     }

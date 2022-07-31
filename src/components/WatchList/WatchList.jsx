@@ -35,6 +35,7 @@ class WatchList extends Component {
                   height: "7rem"
                 }} src={watch.wimage}/>
                 </td>
+                {/* {console.log(watch.wimage)} */}
                 <td align="center" className="d-grid gap-2">
                   <NewWatchModal
                     create={false}

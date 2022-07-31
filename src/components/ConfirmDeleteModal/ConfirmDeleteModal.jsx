@@ -24,7 +24,8 @@ class ConfirmDeleteModal extends Component {
     render() {
         return (
             <Fragment>
-                <Button color="danger" onClick={() => this.toggle()} style={{ marginBottom: "2em" }}>Remove</Button>
+                {/* <Button color="danger" onClick={() => this.toggle()} style={{ marginBottom: "2em" }}>Remove</Button> */}
+                <Button color="danger" onClick={() => this.toggle()}>Remove</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Confirm Removal</ModalHeader>
                     <ModalFooter>

@@ -44,7 +44,11 @@ class NewWatchForm extends React.Component {
 
   editWatch = e => {
     e.preventDefault();
-    axios.put(API_URL + this.state.pk, this.state).then(() => {
+    axios.put(API_URL + this.state.pk, this.state, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    }).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
@@ -76,7 +80,7 @@ class NewWatchForm extends React.Component {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="wimage">WImage:</Label>
+          <Label for="wimage">Wimage:</Label>
           <Input
             type="file"
             name="wimage"
@@ -84,15 +88,14 @@ class NewWatchForm extends React.Component {
             // value={this.defaultIfEmpty(this.state.wimage)}
           />
         </FormGroup>
-        <FormGroup>
+        {/* <FormGroup>
           <Label for="image">Image:</Label>
           <Input
             type="file"
             name="image"
             onChange={this.onImageChange}
-            // value={this.defaultIfEmpty(this.state.wimage)}
           />
-        </FormGroup>
+        </FormGroup> */}
         <Button>Send</Button>
       </Form>
     );
