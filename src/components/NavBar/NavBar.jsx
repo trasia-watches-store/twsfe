@@ -33,7 +33,7 @@ const NavBar = ({ user, setUser }) => {
 
   return (
     <div className='navbar-container'>
-      <div className='instacat'>
+      <div className='shop-name'>
       {/* <img src="../../../public/images/pexels-antony-trivet-9897010.jpg" alt=''/> */}
         <h1>Trasia Watch Store</h1>
       </div>
