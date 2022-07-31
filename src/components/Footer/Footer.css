@@ -7,19 +7,23 @@ footer {
     bottom: 0;
     margin: 0 auto;
     gap: 1em;
-
 }
 
 .creator{
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     margin: 0.2em;
 }
 
-
-
 .creator:hover{
     width: 3.5em;
     height: 3.5em;
+}
+
+@media (max-width: 500px) {
+    .text-footer{
+        font-size: 1em;
+        margin-top: 5px;
+    }
 }
