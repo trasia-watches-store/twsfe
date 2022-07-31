@@ -49,10 +49,10 @@ function App() {
       <Header />
       {/* <Home /> */}
       <Routes>
-            <Route
+            {/* <Route
               path="/home"
               element={<HomeWatches user={user} />}
-            ></Route>
+            ></Route> */}
             <Route
               path="/managedb"
               element={<HomeStaff user={user} />}
@@ -62,7 +62,7 @@ function App() {
               element={<StaffProfile user={user} setUser={setUser} />}
             ></Route>
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-            <Route path="/*" element={<Navigate to="/home" />} />
+            <Route path="/*" element={<Navigate to="/managedb" />} />
           </Routes>
           <Footer />
           </>

@@ -37,7 +37,7 @@ const NavBar = ({ user, setUser }) => {
           Trasia Watches Store</h1>
       </div>
       <div className='icons'>
-      <Link to='/home'><BsShop className="icon"/></Link>
+      {/* <Link to='/home'><BsShop className="icon"/></Link> */}
       <Link to={`/managedb`}><GiWatch className="icon"/></Link>
       <Link to={`/staffprofile`}><BsPersonCircle className="icon" alt=""/></Link>
       <Link to="" ><GoSignOut className="icon" onClick={handleLogOut}/></Link>
