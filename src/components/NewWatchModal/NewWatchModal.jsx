@@ -17,7 +17,7 @@ class NewWatchModal extends Component {
     const create = this.props.create;
 
     let title = "Edit Watch";
-    let button = <Button onClick={this.toggle}>Edit</Button>;
+    let button = <Button onClick={this.toggle} style={{ minWidth: "80px", marginBottom: "10px" }}>Edit</Button>;
     if (create) {
       title = "Creating New Watch";
 
