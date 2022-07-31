@@ -57,7 +57,7 @@ export default function StaffProfile({ user, setUser }) {
 
     return (
         <div className="user-setting">
-            <h3>Profile Setting</h3>
+            <h3 className='text-center'>Profile Setting</h3>
 
             <form autoComplete="off" className="form-username" onSubmit={handleSubmitUserName}>
                 <label>New Username</label>

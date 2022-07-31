@@ -25,7 +25,7 @@ const NavBar = ({ user, setUser }) => {
   return (
     <div className='navbar-container'>
       <div className='shop-name'>
-        <h1 style={{marginBottom: "0px", marginTop: '5px'}}>
+        <h1 style={{marginBottom: "0px", marginTop: '5px', color: 'rgb(71, 41, 162)'}}>
         <img
             src="/images/640-analog-wristwatch-with-leather-strap.jpg"
             // src="/images/pexels-hemanth-k-m-11638635.jpg"
