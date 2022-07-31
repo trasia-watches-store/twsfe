@@ -26,23 +26,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Container style={{  marginTop: "20px" }}>
-                {/* <Row>
-                    <Col>
-                        <WatchList 
-                        watches={this.state.watches} 
-                        resetState={this.resetState}
-                        />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <NewWatchModal 
-                        resetState={this.resetState} 
-                        create={true}
-                        />
-                    </Col>
-                </Row> */}
+            <Container style={{  marginTop: "0 auto" }}>
                 <Row>
                     <Col>
                     <NewWatchModal 
