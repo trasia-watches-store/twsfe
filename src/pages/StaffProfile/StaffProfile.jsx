@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { USER_URL } from "../../constants";
+import './StaffProfile.css'
 
 export default function StaffProfile({ user, setUser }) {
     const key = localStorage.getItem('token');
