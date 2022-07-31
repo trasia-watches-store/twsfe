@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import { Table, Card, CardImg } from "reactstrap";
 import NewWatchModal from "../NewWatchModal/NewWatchModal";
-
+import './WatchList.css'
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 
 class WatchList extends Component {
   render() {
     const watches = this.props.watches;
     return (
-      <Table dark>
+      <Table responsive dark>
         <thead>
           <tr>
             <th>Name</th>
             <th>Type</th>
             <th>Image</th>
-            <th>Watches pics</th>
+            {/* <th>Watches pics</th> */}
             <th>Edit/Remove</th>
           </tr>
         </thead>
@@ -31,18 +31,12 @@ class WatchList extends Component {
                 <td>{watch.name}</td>
                 <td>{watch.type}</td>
                 <td>
-                  {/* <Card style={{
-                  width: "10rem",
-                  height: "10rem",
-                  border: "1px solid black"
-                }}> */}
                   <CardImg style={{
                   width: "7rem",
                   height: "7rem"
                 }} src={watch.wimage}/>
-                {/* </Card> */}
                 </td>
-                <td></td>
+                {/* <td></td> */}
                 <td align="center">
                   <NewWatchModal
                     create={false}
