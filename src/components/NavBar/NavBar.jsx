@@ -14,15 +14,6 @@ const NavBar = ({ user, setUser }) => {
 
 	async function handleLogOut(evt) {
     evt.preventDefault();
-    // axios.post(`${USER_URL}logout/`, {
-    //   headers: {
-    //     'Authorization': `Token ${localStorage.getItem('token')}`
-    //   }
-    // }).then((response) => {
-    //   // console.log(response)
-    //   localStorage.clear()
-		// setUser(null)}
-    // )
     
     localStorage.clear()
   setUser(null)
@@ -34,8 +25,16 @@ const NavBar = ({ user, setUser }) => {
   return (
     <div className='navbar-container'>
       <div className='shop-name'>
-      {/* <img src="../../../public/images/pexels-antony-trivet-9897010.jpg" alt=''/> */}
-        <h1>Trasia Watch Store</h1>
+        <h1 style={{marginBottom: "0px", marginTop: '5px'}}>
+        <img
+            src="/images/640-analog-wristwatch-with-leather-strap.jpg"
+            // src="/images/pexels-hemanth-k-m-11638635.jpg"
+            width="50"
+            className="rounded-circle"
+            alt="logo"
+            style={{marginTop: "0px", marginBottom: "5px"}}
+            />
+          Trasia Watches Store</h1>
       </div>
       <div className='icons'>
       <Link to='/home'><BsShop className="icon"/></Link>
