@@ -64,6 +64,7 @@ function App() {
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
+          <Footer />
           </>
           ) : (
             <Routes>
