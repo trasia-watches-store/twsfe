@@ -4,6 +4,7 @@ import HomeStaff from '../HomePage/HomeStaff';
 import NavBar from '../../components/NavBar/NavBar';
 import AuthPage from '../AuthPage/AuthPage';
 import StaffProfile from '../StaffProfile/StaffProfile';
+import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
 import { Fragment, useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
