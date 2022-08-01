@@ -11,6 +11,7 @@ export default function LoginForm({ setUser, getUser }) {
   const [error, setError] = useState('');
 
   function handleChange(evt) {
+    console.log(USER_URL)
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
     setError('');
   }
