@@ -4,6 +4,9 @@ import axios from "axios"
 import { API_URL } from "../../constants"
 
 class ConfirmDeleteModal extends Component {
+    // let API_URL = process.env.API_URL
+    // const url = 'http://localhost:8000/api/'
+
     state = {
         modal: false
     }
