@@ -1,5 +1,5 @@
 # [Trasia-Watches-Store](https://twsfe.vercel.app/)
-
+Heroku deploy for [Trasia-Watches-Store](https://trasia-watches-store.herokuapp.com/)
 This application is designed for staff of Trasia-Watches-Store to manage stock and their accounts settings.
 
 ## Premise
