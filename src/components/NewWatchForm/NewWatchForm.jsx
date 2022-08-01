@@ -24,9 +24,12 @@ class NewWatchForm extends React.Component {
 
   onImageChange = (evt) => {
       evt.preventDefault()
-      console.log(evt.target.name)
-      console.log(evt.target.files[0])
-      this.setState({ ...this.state, [evt.target.name]: evt.target.files[0] });
+      // console.log(evt.target.name)
+      // console.log(evt.target.files[0])
+      console.log(this.state.wimage)
+      if (evt.target.files[0]) {
+        this.setState({ ...this.state, [evt.target.name]: evt.target.files[0] });
+      }
     }
 
   createWatch = e => {
@@ -44,6 +47,9 @@ class NewWatchForm extends React.Component {
 
   editWatch = e => {
     e.preventDefault();
+    // console.log(this.state)
+    this.setState({ ...this.state, 'wimage': this.state.wimage })
+      console.log(this.state)
     axios.put(API_URL + this.state.pk, this.state, {
       headers: {
         "Content-Type": "multipart/form-data"
