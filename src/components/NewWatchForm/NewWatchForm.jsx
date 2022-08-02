@@ -96,7 +96,48 @@ class NewWatchForm extends React.Component {
 
         <FormGroup>
           <Label for="type">Features:</Label>
-          <Input type="text" name="features" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Input type="textarea" name="features" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Price:</Label>
+          <Input type="number" name="price" min='0' max='999999' step='0.01' required onChange={this.onChange} value='20'/>
+          {/* <Input type="number" name="price" min='0' max='999999' step='0.01' required onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/> */}
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Number of stock:</Label>
+          <Input type="number" name="price" min='0' max='999999' step='1' required onChange={this.onChange}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Brand:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Family:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Model:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Limited:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Water Resistance Feature:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Case Description:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Dial Description:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="type">Movement Description:</Label>
+          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
         </FormGroup>
 
         <FormGroup>
@@ -105,6 +146,7 @@ class NewWatchForm extends React.Component {
             type="file"
             name="wimage"
             onChange={this.onImageChange}
+            // dummy image https://s3.ap-southeast-2.amazonaws.com/watchespics/cffdfa.png 
             // value={this.defaultIfEmpty(this.state.wimage)}
           />
         </FormGroup>
