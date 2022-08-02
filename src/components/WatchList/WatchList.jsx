@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Table, Card, CardImg } from "reactstrap";
-import { AiOutlinePicture } from "react-icons/ai";
+import { TbReportSearch } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom"
 import './WatchList.css'
 import NewWatchModal from "../NewWatchModal/NewWatchModal";
@@ -29,7 +29,7 @@ class WatchList extends Component {
           ) : (
             watches.map(watch => (
               <tr key={watch.pk}>
-                <td><Link to={`/managedb/${watch.pk}`} className="detailLink"><AiOutlinePicture className="icon"/> {watch.name}</Link></td>
+                <td><Link to={`/managedb/${watch.pk}`} className="detailLink"><TbReportSearch className="report-icon"/>{watch.productCode}</Link></td>
                 <td>{watch.type}</td>
                 {/* <td>
                   <CardImg style={{
