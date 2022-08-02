@@ -7,7 +7,7 @@ import StaffProfile from '../StaffProfile/StaffProfile';
 import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
 import { Fragment, useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import axios from "axios"
 import { USER_URL } from "../../constants";
 import HomeWatches from '../HomePage/HomeWatches';
