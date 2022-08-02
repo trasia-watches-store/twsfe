@@ -22,6 +22,7 @@ function App() {
   const [user, setUser] = useState(null);
   // console.log(user)
   const [watches, setWatches] = useState([]);
+  const [img, setImg] = useState([]);
   // console.log(auth);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ function App() {
             ></Route>
             <Route
               path="/managedb/:watch_pk"
-              element={<WatchDetailPage user={user} watches={watches} />}
+              element={<WatchDetailPage user={user} watches={watches} img={img} setImg={setImg}/>}
             ></Route>
             <Route
               path="/staffprofile"

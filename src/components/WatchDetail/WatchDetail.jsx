@@ -1,19 +1,13 @@
 import React, { Fragment } from 'react'
-import './WatchDetailPage.css'
+import './WatchDetail.css'
 import { ListGroup, ListGroupItem } from 'reactstrap'
-import { useParams } from 'react-router-dom'
-import WatchDetail from '../../components/WatchDetail/WatchDetail'
-import Image from '../../components/Image/Image'
 
-const WatchDetailPage = ({user, watches, img, setImg}) => {
-    let { watch_pk } = useParams()
-    let watch = watches.find(watch => watch.pk == watch_pk)
-    console.log(img)
+const WatchDetail = ({user, watch}) => {
+    console.log(watch)
+    console.log(user)
   return (
     <Fragment>
-      <Image user={user} watch={watch} img={img} setImg={setImg}/>
-      <WatchDetail user={user} watch={watch}/>
-        {/* <ListGroup>
+        <ListGroup>
             <ListGroupItem>Code: <b className='watch-detail'>{watch.productCode}</b></ListGroupItem>
             <ListGroupItem>Name: <b className='watch-detail'>{watch.name}</b></ListGroupItem>
             <ListGroupItem>Type: <b className='watch-detail'>{watch.type}</b></ListGroupItem>
@@ -29,9 +23,9 @@ const WatchDetailPage = ({user, watches, img, setImg}) => {
             <ListGroupItem>Movement description: <b className='watch-detail'>{watch.movement_description}</b></ListGroupItem>
             <ListGroupItem>Image: <a className='watch-detail' href={watch.wimage}>Image</a></ListGroupItem>
         </ListGroup>
-        <div className='dummy'></div> */}
+        <div className='dummy'></div>
     </Fragment>
   )
 }
 
-export default WatchDetailPage
+export default WatchDetail
