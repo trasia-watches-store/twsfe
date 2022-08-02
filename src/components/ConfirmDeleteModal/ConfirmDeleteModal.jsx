@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Button, ModalHeader, Modal, ModalFooter } from "reactstrap";
 import axios from "axios"
 import { API_URL } from "../../constants"
+import './ConfirmDeleteModal.css'
 
 class ConfirmDeleteModal extends Component {
 
@@ -26,7 +27,7 @@ class ConfirmDeleteModal extends Component {
         return (
             <Fragment>
                 {/* <Button color="danger" onClick={() => this.toggle()} style={{ marginBottom: "2em" }}>Remove</Button> */}
-                <Button color="danger" onClick={() => this.toggle()}>Remove</Button>
+                <Button className='deletebtn' color="danger" onClick={() => this.toggle()}>Remove</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Confirm Removal</ModalHeader>
                     <ModalFooter>

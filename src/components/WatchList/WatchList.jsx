@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Table, Card, CardImg } from "reactstrap";
-import NewWatchModal from "../NewWatchModal/NewWatchModal";
+import { AiOutlinePicture } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom"
 import './WatchList.css'
+import NewWatchModal from "../NewWatchModal/NewWatchModal";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 
 class WatchList extends Component {
@@ -13,7 +15,7 @@ class WatchList extends Component {
           <tr>
             <th>Name</th>
             <th>Type</th>
-            <th>Image</th>
+            {/* <th>Image</th> */}
             <th>Edit/Remove</th>
           </tr>
         </thead>
@@ -27,16 +29,17 @@ class WatchList extends Component {
           ) : (
             watches.map(watch => (
               <tr key={watch.pk}>
-                <td>{watch.name}</td>
+                <td><Link to={`/managedb`} className="detailLink"><AiOutlinePicture className="icon"/> {watch.name}</Link></td>
                 <td>{watch.type}</td>
-                <td>
+                {/* <td>
                   <CardImg style={{
                   width: "7rem",
                   height: "7rem"
                 }} src={watch.wimage}/>
-                </td>
+                </td> */}
                 {/* {console.log(watch.wimage)} */}
-                <td align="center" className="d-grid gap-2">
+                {/* <td align="center" className="d-block-flex gap-2" style={{paddingBottom: '20px'}}> */}
+                <td className="d-block-flex gap-2" style={{paddingBottom: '20px'}}>
                   <NewWatchModal
                     create={false}
                     watch={watch}

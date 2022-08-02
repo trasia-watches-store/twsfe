@@ -1,11 +1,5 @@
-/* #wimage {
-    width: 50px;
-    height: 50px;
+.detailLink {
+    color: white;
+    text-decoration: none;
+    text-color: white;
 }
-
-@media (max-width: 500px) {
-    #wimage {
-        width: 30px;
-        height: 30px;
-    }
-} */

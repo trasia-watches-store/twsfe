@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Button, Modal, ModalHeader, ModalBody } from "reactstrap";
 import NewWatchForm from "../NewWatchForm/NewWatchForm";
+import './NewWatchModal.css'
 
 class NewWatchModal extends Component {
   state = {
@@ -18,7 +19,7 @@ class NewWatchModal extends Component {
 
     let title = "Edit Watch";
     // let button = <Button onClick={this.toggle} style={{ marginBottom: "-2em" }}>Edit</Button>;
-    let button = <Button onClick={this.toggle}>Edit</Button>;
+    let button = <Button onClick={this.toggle} className='editbtn'>Edit</Button>;
     if (create) {
       title = "Creating New Watch";
 
@@ -27,7 +28,7 @@ class NewWatchModal extends Component {
           color="primary"
           className="float-right new-watch-button"
           onClick={this.toggle}
-          style={{ minWidth: "200px", marginBottom: "10px" }}
+          // style={{ minWidth: "200px", marginBottom: "10px" }}
         >
           Create New
         </Button>
