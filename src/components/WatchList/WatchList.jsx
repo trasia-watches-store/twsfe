@@ -13,8 +13,8 @@ class WatchList extends Component {
       <Table responsive dark>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Type</th>
+            <th>Product Code</th>
+            <th className='smalldevice' >Name</th>
             {/* <th>Image</th> */}
             <th>Edit/Remove</th>
           </tr>
@@ -30,7 +30,7 @@ class WatchList extends Component {
             watches.map(watch => (
               <tr key={watch.pk}>
                 <td><Link to={`/managedb/${watch.pk}`} className="detailLink"><TbReportSearch className="report-icon"/>{watch.productCode}</Link></td>
-                <td>{watch.type}</td>
+                <td className='smalldevice' >{watch.name}</td>
                 {/* <td>
                   <CardImg style={{
                   width: "7rem",
