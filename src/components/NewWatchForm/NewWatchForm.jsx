@@ -6,6 +6,7 @@ import { API_URL } from "../../constants";
 class NewWatchForm extends React.Component {
   state = {
     pk: 0,
+    productCode: "",
     name: "",
     type: "",
     features: "",
@@ -26,8 +27,8 @@ class NewWatchForm extends React.Component {
     if (this.props.watch) {
       // const { pk, name, type, features, wimage } = this.props.watch;
       // this.setState({ pk, name, type, features, wimage });
-      const { pk, name, type, features, price, stockNum, brand, family, model, limited, water_resistance_depth, case_description, dial_description, movement_description, wimage } = this.props.watch;
-      this.setState({ pk, name, type, features, price, stockNum, brand, family, model, limited, water_resistance_depth, case_description, dial_description, movement_description, wimage });
+      const { pk, productCode ,name, type, features, price, stockNum, brand, family, model, limited, water_resistance_depth, case_description, dial_description, movement_description, wimage } = this.props.watch;
+      this.setState({ pk, productCode ,name, type, features, price, stockNum, brand, family, model, limited, water_resistance_depth, case_description, dial_description, movement_description, wimage });
     }
   }
 
@@ -86,6 +87,15 @@ class NewWatchForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.props.watch ? this.editWatch : this.createWatch}>
+        <FormGroup>
+          <Label for="productCode">Product Code:</Label>
+          <Input
+            type="text"
+            name="productCode"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.productCode)}
+          />
+        </FormGroup>
         <FormGroup>
           <Label for="name">Name:</Label>
           <Input
