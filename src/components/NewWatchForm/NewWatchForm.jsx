@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import axios from "axios";
 import { API_URL } from "../../constants";
@@ -8,59 +8,67 @@ class NewWatchForm extends React.Component {
     pk: 0,
     name: "",
     type: "",
+    features: "",
     wimage: "",
   };
 
   componentDidMount() {
     if (this.props.watch) {
-      const { pk, name, type, wimage } = this.props.watch;
-      this.setState({ pk, name, type, wimage });
+      const { pk, name, type, features, wimage } = this.props.watch;
+      this.setState({ pk, name, type, features, wimage });
+      
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
+    console.log(this.state);
+      console.log(this.props.watch);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   onImageChange = (evt) => {
-      evt.preventDefault()
-      // console.log(evt.target.name)
-      // console.log(evt.target.files[0])
-      console.log(this.state.wimage)
-      if (evt.target.files[0]) {
-        this.setState({ ...this.state, [evt.target.name]: evt.target.files[0] });
-      }
+    evt.preventDefault();
+    // console.log(evt.target.name)
+    // console.log(evt.target.files[0])
+    console.log(this.state.wimage);
+    if (evt.target.files[0]) {
+      this.setState({ ...this.state, [evt.target.name]: evt.target.files[0] });
     }
+  };
 
-  createWatch = e => {
+  createWatch = (e) => {
     e.preventDefault();
     // console.log(this.state);
-    axios.post(API_URL, this.state, {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    }).then(() => {
-      this.props.resetState();
-      this.props.toggle();
-    });
+    axios
+      .post(API_URL, this.state, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(() => {
+        this.props.resetState();
+        this.props.toggle();
+      });
   };
 
-  editWatch = e => {
+  editWatch = (e) => {
     e.preventDefault();
     // console.log(this.state)
-    this.setState({ ...this.state, 'wimage': this.state.wimage })
-      console.log(this.state)
-    axios.put(API_URL + this.state.pk, this.state, {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    }).then(() => {
-      this.props.resetState();
-      this.props.toggle();
-    });
+    this.setState({ ...this.state, wimage: this.state.wimage });
+    console.log(this.state);
+    axios
+      .put(API_URL + this.state.pk, this.state, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(() => {
+        this.props.resetState();
+        this.props.toggle();
+      });
   };
 
-  defaultIfEmpty = value => {
+  defaultIfEmpty = (value) => {
     return value === "" ? "" : value;
   };
 
@@ -85,6 +93,12 @@ class NewWatchForm extends React.Component {
             value={this.defaultIfEmpty(this.state.type)}
           />
         </FormGroup>
+
+        <FormGroup>
+          <Label for="type">Features:</Label>
+          <Input type="text" name="features" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+        </FormGroup>
+
         <FormGroup>
           <Label for="wimage">Wimage:</Label>
           <Input
