@@ -11,6 +11,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios"
 import { USER_URL } from "../../constants";
 import HomeWatches from '../HomePage/HomeWatches';
+import WatchDetailPage from '../WatchDetailPage/WatchDetailPage';
 // import { Navbar, Collapse, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarToggler } from 'reactstrap';
 
 function App() {
@@ -59,7 +60,7 @@ function App() {
             ></Route>
             <Route
               path="/managedb/:product_pk"
-              element={<HomeStaff user={user} />}
+              element={<WatchDetailPage user={user} />}
             ></Route>
             <Route
               path="/staffprofile"
