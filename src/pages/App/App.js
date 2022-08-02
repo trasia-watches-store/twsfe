@@ -58,6 +58,10 @@ function App() {
               element={<HomeStaff user={user} />}
             ></Route>
             <Route
+              path="/managedb/:product_pk"
+              element={<HomeStaff user={user} />}
+            ></Route>
+            <Route
               path="/staffprofile"
               element={<StaffProfile user={user} setUser={setUser} />}
             ></Route>

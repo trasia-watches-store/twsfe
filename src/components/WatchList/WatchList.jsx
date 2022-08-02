@@ -29,7 +29,7 @@ class WatchList extends Component {
           ) : (
             watches.map(watch => (
               <tr key={watch.pk}>
-                <td><Link to={`/managedb`} className="detailLink"><AiOutlinePicture className="icon"/> {watch.name}</Link></td>
+                <td><Link to={`/managedb/${watch.pk}`} className="detailLink"><AiOutlinePicture className="icon"/> {watch.name}</Link></td>
                 <td>{watch.type}</td>
                 {/* <td>
                   <CardImg style={{
