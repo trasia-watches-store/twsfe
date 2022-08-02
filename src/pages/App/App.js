@@ -59,7 +59,7 @@ function App() {
               element={<HomeStaff user={user} watches={watches} setWatches={setWatches}/>}
             ></Route>
             <Route
-              path="/managedb/:product_pk"
+              path="/managedb/:watch_pk"
               element={<WatchDetailPage user={user} watches={watches} />}
             ></Route>
             <Route

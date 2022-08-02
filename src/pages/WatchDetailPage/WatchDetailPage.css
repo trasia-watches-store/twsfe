@@ -1,0 +1,15 @@
+.watch-detail {
+    color: blue; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.dummy {
+    height: 10%;
+}
