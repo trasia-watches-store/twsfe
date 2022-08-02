@@ -8,16 +8,24 @@ import axios from "axios"
 import { API_URL } from "../../constants"
 
 class Home extends Component {
-    state = {
-        watches: []
-    }
-
+    // state = {
+    //     watches: []
+    // }
+    // state = this.props.watches
     componentDidMount() {
+        // this.resetState()
         this.resetState()
+        // console.log(this.props.watches)
+        // console.log(this.props.setWatches)
     }
 
     getWatches = () => {
-        axios.get(API_URL).then(res => this.setState({ watches: res.data }))
+        // axios.get(API_URL).then(res => this.setState({ watches: res.data }))
+        axios.get(API_URL).then(res => {
+            this.props.setWatches(res.data)
+            // console.log(this.props.watches)
+                // this.props.setWatches({ watches: res.data })
+        })
     }
 
     resetState = () => {
@@ -38,7 +46,8 @@ class Home extends Component {
                 <Row>
                     <Col>
                     <WatchList 
-                        watches={this.state.watches} 
+                        watches={this.props.watches} 
+                        // watches={this.state.watches} 
                         resetState={this.resetState}
                         />
                         

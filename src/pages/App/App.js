@@ -21,7 +21,7 @@ function App() {
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   // console.log(user)
-  const [watch, setWatch] = useState('');
+  const [watches, setWatches] = useState([]);
   // console.log(auth);
 
   useEffect(() => {
@@ -56,11 +56,11 @@ function App() {
             ></Route> */}
             <Route
               path="/managedb"
-              element={<HomeStaff user={user} />}
+              element={<HomeStaff user={user} watches={watches} setWatches={setWatches}/>}
             ></Route>
             <Route
               path="/managedb/:product_pk"
-              element={<WatchDetailPage user={user} />}
+              element={<WatchDetailPage user={user} watches={watches} />}
             ></Route>
             <Route
               path="/staffprofile"
