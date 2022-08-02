@@ -9,14 +9,25 @@ class NewWatchForm extends React.Component {
     name: "",
     type: "",
     features: "",
+    price: 0,
+    stockNum: 0,
+    brand: "",
+    family: "",
+    model: "",
+    limited: 'False',
+    water_resistance_depth: 0,
+    case_description: "",
+    dial_description: "",
+    movement_description: "",
     wimage: "",
   };
 
   componentDidMount() {
     if (this.props.watch) {
-      const { pk, name, type, features, wimage } = this.props.watch;
-      this.setState({ pk, name, type, features, wimage });
-      
+      // const { pk, name, type, features, wimage } = this.props.watch;
+      // this.setState({ pk, name, type, features, wimage });
+      const { pk, name, type, features, price, stockNum, brand, family, model, limited, water_resistance_depth, case_description, dial_description, movement_description, wimage } = this.props.watch;
+      this.setState({ pk, name, type, features, price, stockNum, brand, family, model, limited, water_resistance_depth, case_description, dial_description, movement_description, wimage });
     }
   }
 
@@ -95,49 +106,54 @@ class NewWatchForm extends React.Component {
         </FormGroup>
 
         <FormGroup>
-          <Label for="type">Features:</Label>
+          <Label for="features">Features:</Label>
           <Input type="textarea" name="features" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
         </FormGroup>
         <FormGroup>
-          <Label for="type">Price:</Label>
-          <Input type="number" name="price" min='0' max='999999' step='0.01' required onChange={this.onChange} value='20'/>
-          {/* <Input type="number" name="price" min='0' max='999999' step='0.01' required onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/> */}
+          <Label for="price">Price:</Label>
+          <Input type="number" name="price" min='0' max='9999' step='0.01' required onChange={this.onChange}/>
         </FormGroup>
         <FormGroup>
-          <Label for="type">Number of stock:</Label>
-          <Input type="number" name="price" min='0' max='999999' step='1' required onChange={this.onChange}/>
+          <Label for="stockNum">Number of stock:</Label>
+          <Input type="number" name="stockNum" min='0' max='9999' step='1' required onChange={this.onChange}/>
         </FormGroup>
         <FormGroup>
-          <Label for="type">Brand:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Label for="brand">Brand:</Label>
+          <Input type="text" name="brand" onChange={this.onChange} value={this.defaultIfEmpty(this.state.brand)}/>
         </FormGroup>
         <FormGroup>
-          <Label for="type">Family:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Label for="family">Family:</Label>
+          <Input type="text" name="family" onChange={this.onChange} value={this.defaultIfEmpty(this.state.family)}/>
         </FormGroup>
         <FormGroup>
           <Label for="type">Model:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Input type="text" name="model" onChange={this.onChange} value={this.defaultIfEmpty(this.state.model)}/>
         </FormGroup>
         <FormGroup>
-          <Label for="type">Limited:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <div>Limited:</div>
+          <div>
+          <Input type="radio" name="limited" placeholder="yes" onChange={this.onChange} value='True'/>
+          <Label for="type">Yes</Label>
+          <div></div>
+          <Input type="radio" name="limited" onChange={this.onChange} value='False' checked/>
+          <Label for="type">No</Label>
+          </div>
         </FormGroup>
         <FormGroup>
           <Label for="type">Water Resistance Feature:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Input type="number" min='0' max='999999' step='1'  name="water_resistance_depth" onChange={this.onChange}/>
         </FormGroup>
         <FormGroup>
           <Label for="type">Case Description:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Input type="textarea" name="case_description" onChange={this.onChange} value={this.defaultIfEmpty(this.state.case_description)}/>
         </FormGroup>
         <FormGroup>
           <Label for="type">Dial Description:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Input type="textarea" name="dial_description" onChange={this.onChange} value={this.defaultIfEmpty(this.state.dial_description)}/>
         </FormGroup>
         <FormGroup>
           <Label for="type">Movement Description:</Label>
-          <Input type="" name="" onChange={this.onChange} value={this.defaultIfEmpty(this.state.features)}/>
+          <Input type="textarea" name="movement_description" onChange={this.onChange} value={this.defaultIfEmpty(this.state.movement_description)}/>
         </FormGroup>
 
         <FormGroup>
