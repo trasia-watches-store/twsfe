@@ -11,25 +11,11 @@ const WatchDetailPage = ({user, watches, img, setImg}) => {
     console.log(img)
   return (
     <Fragment>
+      {/* image from watch model */}
       <Image user={user} watch={watch} img={img} setImg={setImg}/>
+      {/* image from image model */}
       <WatchDetail user={user} watch={watch}/>
-        {/* <ListGroup>
-            <ListGroupItem>Code: <b className='watch-detail'>{watch.productCode}</b></ListGroupItem>
-            <ListGroupItem>Name: <b className='watch-detail'>{watch.name}</b></ListGroupItem>
-            <ListGroupItem>Type: <b className='watch-detail'>{watch.type}</b></ListGroupItem>
-            <ListGroupItem>Features: <b className='watch-detail'>{watch.features}</b></ListGroupItem>
-            <ListGroupItem>Number of stocks: <b className='watch-detail'>{watch.stockNum}</b></ListGroupItem>
-            <ListGroupItem>Brand: <b className='watch-detail'>{watch.brand}</b></ListGroupItem>
-            <ListGroupItem>Family: <b className='watch-detail'>{watch.family}</b></ListGroupItem>
-            <ListGroupItem>Model: <b className='watch-detail'>{watch.model}</b></ListGroupItem>
-            <ListGroupItem>Limited: <b className='watch-detail'>{watch.limited}</b></ListGroupItem>
-            <ListGroupItem>Water Resistance: <b className='watch-detail'>{watch.water_resistance_depth}</b></ListGroupItem>
-            <ListGroupItem>Case description: <b className='watch-detail'>{watch.case_description}</b></ListGroupItem>
-            <ListGroupItem>Dial description: <b className='watch-detail'>{watch.dial_description}</b></ListGroupItem>
-            <ListGroupItem>Movement description: <b className='watch-detail'>{watch.movement_description}</b></ListGroupItem>
-            <ListGroupItem>Image: <a className='watch-detail' href={watch.wimage}>Image</a></ListGroupItem>
-        </ListGroup>
-        <div className='dummy'></div> */}
+        <div className='dummy'></div>
     </Fragment>
   )
 }

@@ -9,13 +9,17 @@ import { Link } from 'react-router-dom';
 import { Fragment, useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import axios from "axios"
+import Cookies from 'js-cookie';
 import { USER_URL } from "../../constants";
 import HomeWatches from '../HomePage/HomeWatches';
 import WatchDetailPage from '../WatchDetailPage/WatchDetailPage';
 // import { Navbar, Collapse, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarToggler } from 'reactstrap';
 
 function App() {
+  Cookies.set('foo', 'bar');
+  const cookies = Cookies.get('csrftoken');
   const auth = localStorage.getItem('token');
+  console.log(cookies);
   // console.log(localStorage.getItem('token'))
   // console.log(auth)
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -23,6 +27,7 @@ function App() {
   // console.log(user)
   const [watches, setWatches] = useState([]);
   const [img, setImg] = useState([]);
+  const [photo, setPhoto] = useState([]);
   // console.log(auth);
 
   useEffect(() => {
@@ -61,7 +66,7 @@ function App() {
             ></Route>
             <Route
               path="/managedb/:watch_pk"
-              element={<WatchDetailPage user={user} watches={watches} img={img} setImg={setImg}/>}
+              element={<WatchDetailPage user={user} watches={watches} img={img} setImg={setImg} photo={photo} setPhoto={setPhoto}/>}
             ></Route>
             <Route
               path="/staffprofile"
