@@ -19,15 +19,15 @@ function App() {
   Cookies.set('foo', 'bar');
   const cookies = Cookies.get('csrftoken');
   const auth = localStorage.getItem('token');
-  console.log(cookies);
+  // console.log(cookies);
   // console.log(localStorage.getItem('token'))
   // console.log(auth)
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   // console.log(user)
   const [watches, setWatches] = useState([]);
-  const [img, setImg] = useState([]);
-  const [photo, setPhoto] = useState([]);
+  // const [url, setUrl] = useState([]);
+  const [photos, setPhotos] = useState([]);
   // console.log(auth);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function App() {
             ></Route>
             <Route
               path="/managedb/:watch_pk"
-              element={<WatchDetailPage user={user} watches={watches} img={img} setImg={setImg} photo={photo} setPhoto={setPhoto}/>}
+              element={<WatchDetailPage user={user} watches={watches} photos={photos} setPhotos={setPhotos}/>}
             ></Route>
             <Route
               path="/staffprofile"

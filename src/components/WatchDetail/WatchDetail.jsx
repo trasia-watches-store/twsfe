@@ -3,8 +3,8 @@ import './WatchDetail.css'
 import { ListGroup, ListGroupItem } from 'reactstrap'
 
 const WatchDetail = ({user, watch}) => {
-    console.log(watch)
-    console.log(user)
+    // console.log(watch)
+    // console.log(user)
   return (
     <Fragment>
         <ListGroup>
