@@ -32,21 +32,20 @@ const Image = ({user, watch, photos, setPhotos}) => {
         body: data,
       }).then((response) => {
         console.log(response)
-        // resetPhotos()
+        resetPhotos()
       })
   }
 
-//   const getPhotos = () => {
-//     axios.get(`${API_URL}${watch.pk}/pics`).then(res => {
-//         // setPhotos(res.data)
-//         // console.log(this.props.watches)
-//             // this.props.setWatches({ watches: res.data })
-//     })
-// }
+  const getPhotos = () => {
+    axios.get(`${API_URL}pics`).then(res => {
+      setPhotos(res.data)
+      console.log(photos)
+    })
+}
 
-// const resetPhotos = () => {
-//     getPhotos()
-// }
+const resetPhotos = () => {
+    getPhotos()
+}
 
   return (
     <Fragment>
@@ -62,15 +61,17 @@ const Image = ({user, watch, photos, setPhotos}) => {
         </FormGroup>
         <Button style={{marginBottom: '10px'}}>Send</Button>
       </Form>
-                  <CardImg style={{
+                <CardImg style={{
                   width: "7rem",
                   height: "7rem"
                 }} src={watch.wimage}/>
-                {/* "http://localhost:8000/media/images/pexels-antony-trivet-9878293_RmkXyz4.jpg" */}
-                {/* <CardImg style={{
-                  width: "7rem",
-                  height: "7rem"
-                }} src="http://localhost:8000/media/images/pexels-antony-trivet-9878293_RmkXyz4.jpg"/> */}
+                {photos.map(photo => (
+                  // <p>photo</p>
+                    <CardImg style={{
+                      width: "7rem",
+                      height: "7rem"
+                    }} src={photo.image}/>
+                ))}
     </Fragment>
   )
 }
