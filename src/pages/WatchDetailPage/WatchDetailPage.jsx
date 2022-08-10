@@ -19,7 +19,7 @@ const WatchDetailPage = ({user, watches, photos, setPhotos}) => {
   }
   useEffect(() => {
     getPhotos()
-  })
+  }, [])
   const resetPhotos = () => {
       getPhotos()
   }
