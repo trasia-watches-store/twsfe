@@ -44,6 +44,7 @@ class WatchList extends Component {
                     create={false}
                     watch={watch}
                     resetState={this.props.resetState}
+                    user_pk={this.props.user_pk}
                   />
                   &nbsp;&nbsp;
                   <ConfirmDeleteModal

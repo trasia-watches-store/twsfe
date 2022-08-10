@@ -46,6 +46,7 @@ class NewWatchModal extends Component {
               resetState={this.props.resetState}
               toggle={this.toggle}
               watch={this.props.watch}
+              user_pk={this.props.user_pk}
             />
           </ModalBody>
         </Modal>

@@ -23,7 +23,7 @@ class Home extends Component {
         // axios.get(API_URL).then(res => this.setState({ watches: res.data }))
         axios.get(API_URL).then(res => {
             this.props.setWatches(res.data)
-            // console.log(this.props.watches)
+            // console.log(this.props.user.pk)
                 // this.props.setWatches({ watches: res.data })
         })
     }
@@ -47,7 +47,7 @@ class Home extends Component {
                     <Col>
                     <WatchList 
                         watches={this.props.watches} 
-                        // watches={this.state.watches} 
+                        user_pk={this.props.user.pk} 
                         resetState={this.resetState}
                         />
                         

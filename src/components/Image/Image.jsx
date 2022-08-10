@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react'
-import { Form, Label, Input, FormGroup, Button } from 'reactstrap'
+import { Form, Label, Input, FormGroup, Button, CardFooter, CardBody, Card, CardImg, CardText} from 'reactstrap'
 import './Image.css'
-import { CardImg } from 'reactstrap'
 import axios from 'axios'
 import { API_URL } from '../../constants'
 
@@ -22,7 +21,7 @@ const Image = ({user, watch, photos, setPhotos}) => {
     
     const createPhoto = (e) => {
       e.preventDefault();
-      console.log(data)
+      // console.log(data)
     axios
       .post(`${API_URL}pics`, data, {
         headers: {
@@ -31,7 +30,7 @@ const Image = ({user, watch, photos, setPhotos}) => {
       }, {
         body: data,
       }).then((response) => {
-        console.log(response)
+        // console.log(response)
         resetPhotos()
       })
   }
@@ -39,12 +38,17 @@ const Image = ({user, watch, photos, setPhotos}) => {
   const getPhotos = () => {
     axios.get(`${API_URL}pics`).then(res => {
       setPhotos(res.data)
-      console.log(photos)
+      // console.log(photos)
     })
 }
 
 const resetPhotos = () => {
     getPhotos()
+}
+
+const imageClick = (photoId) => {
+  // e.preventDefault();
+  console.log(photoId)
 }
 
   return (
@@ -65,13 +69,37 @@ const resetPhotos = () => {
                   width: "7rem",
                   height: "7rem"
                 }} src={watch.wimage}/>
+                  <div style={{display: 'flex', flexWrap: 'wrap'}}>
                 {photos.map(photo => (
-                  // <p>photo</p>
+                  <Card 
+                  style={{
+                    width: "7rem",
+                    height: "9rem",
+                    margin: '5px',
+                    border: '1px solid black',
+                    alignItems: 'center',
+                    padding:'10px'
+                  }}
+                  >
                     <CardImg style={{
-                      width: "7rem",
-                      height: "7rem"
-                    }} src={photo.image}/>
+                      width: "6rem",
+                      height: "6rem",
+                      marginBottom: '5px',
+                      border: '1px solid black'
+                    }} src={photo.image} 
+                    />
+                    <Button 
+                    color='danger'
+                    style={{
+                    padding: '1px 10px', 
+                  }}
+                    onClick={() => imageClick(photo.id)}>Delete</Button>
+                    {/* <CardText onClick={()=>imageClick(photo.id)}>
+                    Delete
+                      </CardText> */}
+                  </Card>
                 ))}
+                </div>
     </Fragment>
   )
 }

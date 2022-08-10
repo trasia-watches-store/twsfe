@@ -5,6 +5,7 @@ import { API_URL } from "../../constants";
 
 class NewWatchForm extends React.Component {
   state = {
+    // users: this.props.user_pk,
     pk: 0,
     productCode: "",
     name: "",
@@ -34,7 +35,7 @@ class NewWatchForm extends React.Component {
 
   onChange = (e) => {
     console.log(this.state);
-      console.log(this.props.watch);
+      // console.log(this.props.user_pk);
     this.setState({ [e.target.name]: e.target.value });
   };
 
