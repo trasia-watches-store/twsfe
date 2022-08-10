@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Form, Label, Input, FormGroup, Button, CardFooter, CardBody, Card, CardImg, CardText} from 'reactstrap'
+import { Form, Label, Input, FormGroup, Button, Modal, ModalHeader, ModalFooter, Card, CardImg, CardText} from 'reactstrap'
 import './Image.css'
 import axios from 'axios'
 import { API_URL } from '../../constants'
@@ -9,6 +9,17 @@ const Image = ({user, watch, photos, setPhotos}) => {
       image: '', 
       watch: watch.pk,
     })
+    const [modal, setModal] = useState(false)
+    const toggleModal = () => {
+      setModal(!modal)
+    }
+
+// deleteWatch = pk => {
+//   axios.delete(API_URL + pk).then(() => {
+//       this.props.resetState()
+//       this.toggle()
+//   })
+// }
 
     const onImageChange = (evt) => {
       evt.preventDefault();
@@ -47,9 +58,14 @@ const resetPhotos = () => {
 }
 
 const imageClick = (photoId) => {
-  // e.preventDefault();
+  // event.preventDefault();
   console.log(photoId)
+  axios.delete(`${API_URL}pics/` + photoId).then(() => {
+    resetPhotos()
+    toggleModal()
+  })
 }
+
 
   return (
     <Fragment>
@@ -93,10 +109,17 @@ const imageClick = (photoId) => {
                     style={{
                     padding: '1px 10px', 
                   }}
-                    onClick={() => imageClick(photo.id)}>Delete</Button>
+                    onClick={() => toggleModal()}>Delete</Button>
                     {/* <CardText onClick={()=>imageClick(photo.id)}>
                     Delete
                       </CardText> */}
+                <Modal isOpen={modal} toggle={toggleModal}>
+                    <ModalHeader toggle={toggleModal}>Confirm Delete</ModalHeader>
+                    <ModalFooter>
+                        <Button color="primary" onClick={() => imageClick(photo.id)}>Confirm</Button>
+                        <Button color="secondary" onClick={() => toggleModal()}>Cancel</Button>
+                    </ModalFooter>
+                </Modal>
                   </Card>
                 ))}
                 </div>
