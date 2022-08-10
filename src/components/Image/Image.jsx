@@ -4,7 +4,7 @@ import './Image.css'
 import axios from 'axios'
 import { API_URL } from '../../constants'
 
-const Image = ({user, watch, photos, setPhotos}) => {
+const Image = ({user, watch, photos, setPhotos, resetPhotos}) => {
     const [data, setData] = useState({
       image: '', 
       watch: watch.pk,
@@ -46,16 +46,16 @@ const Image = ({user, watch, photos, setPhotos}) => {
       })
   }
 
-  const getPhotos = () => {
-    axios.get(`${API_URL}pics`).then(res => {
-      setPhotos(res.data)
-      // console.log(photos)
-    })
-}
+//   const getPhotos = () => {
+//     axios.get(`${API_URL}pics`).then(res => {
+//       setPhotos(res.data)
+//       // console.log(photos)
+//     })
+// }
 
-const resetPhotos = () => {
-    getPhotos()
-}
+// const resetPhotos = () => {
+//     getPhotos()
+// }
 
 const imageClick = (photoId) => {
   // event.preventDefault();
@@ -102,7 +102,7 @@ const imageClick = (photoId) => {
                       height: "6rem",
                       marginBottom: '5px',
                       border: '1px solid black'
-                    }} src={photo.image} 
+                    }} src={photo.image}
                     />
                     <Button 
                     color='danger'
