@@ -24,13 +24,14 @@ const WatchDetailPage = ({user, watches, photos, setPhotos}) => {
       getPhotos()
   }
   return (
-    <Fragment>
+    <Fragment className='watch-detail'>
       <Row>
-        <Col>
+        <Col style={{padding: '1rem'}}>
       {/* image from watch model */}
       <Image user={user} watch={watch} photos={photos} setPhotos={setPhotos} resetPhotos={resetPhotos}/>
          </Col>
-        <Col>
+        {/* </Row> */}
+        <Col style={{padding: '1rem'}}>
       {/* image from image model */}
       <WatchDetail user={user} watch={watch}/>
         </Col>
