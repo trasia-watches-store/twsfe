@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import './WatchDetailPage.css'
 import { ListGroup, ListGroupItem, Row, Col } from 'reactstrap'
 import { useParams } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { API_URL } from '../../constants'
 import axios from 'axios'
 
 const WatchDetailPage = ({user, watches, photos, setPhotos}) => {
+    const [modal, setModal] = useState(false)
     let { watch_pk } = useParams()
     let watch = watches.find(watch => watch.pk == watch_pk)
     // console.log(photos)
@@ -23,15 +24,22 @@ const WatchDetailPage = ({user, watches, photos, setPhotos}) => {
   const resetPhotos = () => {
       getPhotos()
   }
+
+  const toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   return (
-    <Fragment className='watch-detail'>
+    <Fragment>
       <Row>
-        <Col style={{padding: '1rem'}}>
+        <Col>
       {/* image from watch model */}
       <Image user={user} watch={watch} photos={photos} setPhotos={setPhotos} resetPhotos={resetPhotos}/>
          </Col>
         {/* </Row> */}
-        <Col style={{padding: '1rem'}}>
+        <Col>
       {/* image from image model */}
       <WatchDetail user={user} watch={watch}/>
         </Col>
