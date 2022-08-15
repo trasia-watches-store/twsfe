@@ -26,3 +26,5 @@ As a user I want to be able to see, check, edit, add, and delete products. I als
 
 ## ERD
 ![ERD](./public/images/erd.png)
+## Trello board
+![Trello board](https://trello.com/b/MUu4lGji/trasia-watch-store)
