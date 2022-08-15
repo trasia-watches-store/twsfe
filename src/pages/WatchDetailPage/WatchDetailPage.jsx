@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import './WatchDetailPage.css'
-import { ListGroup, ListGroupItem } from 'reactstrap'
+import { ListGroup, ListGroupItem, Row, Col } from 'reactstrap'
 import { useParams } from 'react-router-dom'
 import WatchDetail from '../../components/WatchDetail/WatchDetail'
 import Image from '../../components/Image/Image'
@@ -25,10 +25,16 @@ const WatchDetailPage = ({user, watches, photos, setPhotos}) => {
   }
   return (
     <Fragment>
+      <Row>
+        <Col>
       {/* image from watch model */}
       <Image user={user} watch={watch} photos={photos} setPhotos={setPhotos} resetPhotos={resetPhotos}/>
+         </Col>
+        <Col>
       {/* image from image model */}
       <WatchDetail user={user} watch={watch}/>
+        </Col>
+        </Row>
         <div className='dummy'></div>
     </Fragment>
   )
