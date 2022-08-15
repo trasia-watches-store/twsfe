@@ -35,12 +35,10 @@ const WatchDetailPage = ({user, watches, photos, setPhotos}) => {
     <Fragment>
       <Row>
         <Col>
-      {/* image from watch model */}
       <Image user={user} watch={watch} photos={photos} setPhotos={setPhotos} resetPhotos={resetPhotos}/>
          </Col>
         {/* </Row> */}
         <Col>
-      {/* image from image model */}
       <WatchDetail user={user} watch={watch}/>
         </Col>
         </Row>
